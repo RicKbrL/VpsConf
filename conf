@@ -82,7 +82,8 @@ golpf.claro.com.br
 logtiscap.claro.com.br
 www.recargafacil.claro.com.br
 .vivo.com.br
-.bradescocelular.com.br" > /etc/payloads
+.bradescocelular.com.br
+.claroseguridad.com" > /etc/payloads
 }
 
 if cat /etc/so |grep -i ubuntu |grep 16 1> /dev/null 2> /dev/null ; then
