@@ -13,9 +13,9 @@ fi" > /bin/badvpn
 chmod +x /bin/badvpn
 echo -e "\033[1;31m           Instalador Badvpn\n\033[1;37mInstalando gcc Cmake make g++ openssl e wget..."
 yum -y update >/dev/null 2>/dev/null
-yum install -y wget openssl gcc cmake make g++ > /dev/null 2>/dev/null
+yum install -y openssl gcc cmake make g++ > /dev/null 2>/dev/null
 apt-get update 1> /dev/null 2>/dev/null
-apt-get install -y gcc cmake make g++ openssl wget >/dev/null 2>/dev/null
+apt-get install -y gcc cmake make g++ openssl >/dev/null 2>/dev/null
 echo -e "Fazendo download do Badvpn"
 cd
 wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/badvpn/badvpn-1.999.128.tar.bz2 -o /dev/null
