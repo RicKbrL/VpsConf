@@ -11,6 +11,11 @@ badvpnpid="'$(ps x |grep badvpn |grep -v grep |awk '"{'"'print $1'"'})
 killall badvpn-udpgw"' >/dev/null 2>/dev/null'"
 fi" > /bin/badvpn
 chmod +x /bin/badvpn
+if [ -f /usr/local/bin/badvpn-udpgw ]; then
+echo -e "\033[1;32mBadvpn ja esta instalado\033[0m"
+else
+clear
+fi
 echo -e "\033[1;31m           Instalador Badvpn\n\033[1;37mInstalando gcc Cmake make g++ openssl e wget..."
 yum update -y >/dev/null 2>/dev/null
 yum install -y openssl > /dev/null 2>/dev/null
@@ -31,7 +36,7 @@ cd cmake-2.8.3/
 ./configure --prefix=/usr/
 make
 make install
-cd ; rm cmake-2.8.3.tar.gz cmake-2.8.3 >/dev/null 2>/dev/null
+cd ; rm -rf cmake-2.8.3.tar.gz cmake-2.8.3 >/dev/null 2>/dev/null
 echo -e "Fazendo download do Badvpn"
 wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/badvpn/badvpn-1.999.128.tar.bz2 -o /dev/null
 echo -e "Descompactando Badvpn"
