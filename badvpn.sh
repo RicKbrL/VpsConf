@@ -13,6 +13,7 @@ fi" > /bin/badvpn
 chmod +x /bin/badvpn
 if [ -f /usr/local/bin/badvpn-udpgw ]; then
 echo -e "\033[1;32mBadvpn ja esta instalado\033[0m"
+exit
 else
 clear
 fi
