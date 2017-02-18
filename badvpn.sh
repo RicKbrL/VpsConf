@@ -8,16 +8,31 @@ fi
 if [ "'$1'" == stop ]
 then
 badvpnpid="'$(ps x |grep badvpn |grep -v grep |awk '"{'"'print $1'"'})
-kill "'$badvpnpid >/dev/null 2>/dev/null'"
+killall badvpn-udpgw"' >/dev/null 2>/dev/null'"
 fi" > /bin/badvpn
 chmod +x /bin/badvpn
 echo -e "\033[1;31m           Instalador Badvpn\n\033[1;37mInstalando gcc Cmake make g++ openssl e wget..."
-yum -y update >/dev/null 2>/dev/null
-yum install -y openssl gcc cmake make g++ > /dev/null 2>/dev/null
+yum update -y >/dev/null 2>/dev/null
+yum install -y openssl > /dev/null 2>/dev/null
+yum install -y gcc >/dev/null 2>/dev/null
+yum install -y g++ >/dev/null 2>/dev/null
+yum install -y make >/dev/null 2>/dev/null
+yum install -y build-essential >/dev/null 2>/dev/null
 apt-get update 1> /dev/null 2>/dev/null
-apt-get install -y gcc cmake make g++ openssl >/dev/null 2>/dev/null
-echo -e "Fazendo download do Badvpn"
+apt-get install -y gcc >/dev/null 2>/dev/null
+apt-get install -y make >/dev/null 2>/dev/null
+apt-get install -y g++ >/dev/null 2>/dev/null
+apt-get install -y openssl >/dev/null 2>/dev/null
+apt-get install -y build-essential >/dev/null 2>/dev/null
 cd
+wget http://www.cmake.org/files/v2.8/cmake-2.8.3.tar.gz -o /dev/null
+tar -xf cmake-2.8.3.tar.gz
+cd cmake-2.8.3/
+./configure --prefix=/usr/
+make
+make install
+cd ; rm cmake-2.8.3.tar.gz cmake-2.8.3 >/dev/null 2>/dev/null
+echo -e "Fazendo download do Badvpn"
 wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/badvpn/badvpn-1.999.128.tar.bz2 -o /dev/null
 echo -e "Descompactando Badvpn"
 tar -xf badvpn-1.999.128.tar.bz2
